@@ -9,6 +9,9 @@
 .bold-class{
     font-weight: bold;
 }
+.loadingStyle{
+    display: none;
+}
 .inner-header-wrapper{
     padding: 10px;
     height: 40px;

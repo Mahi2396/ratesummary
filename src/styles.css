@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.loading-icon-container{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+}

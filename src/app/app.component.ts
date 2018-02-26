@@ -24,6 +24,7 @@ export class AppComponent {
   selectedLegs: any;
   selectedLegsIndex: number;
   popUptitil: any;
+  loadingStyle:any;
   alertStyles = {
     'display': 'none'
   };
@@ -39,13 +40,20 @@ export class AppComponent {
     this.getAllDataResponse();
   }
   getAllDataResponse() {
+    this.loadingStyle={
+      'display': 'block'
+  }
     this.apiSerivce.getAllData().subscribe(data => {
 
 
       this.totalcharge = data.leg_data;
       this.getTotal(this.totalcharge);
       this.responseObject = _.cloneDeep(data);
-    });
+      this.loadingStyle={
+        'display': 'none'
+    }
+    }
+  );
   }
 
 
