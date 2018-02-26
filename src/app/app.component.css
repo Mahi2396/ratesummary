@@ -52,7 +52,7 @@
     color: #fcab33;
     cursor: pointer;
 }
-.rate-lhs-header{
+.rate-lhs-header,.rhs-top-header{
     display: flex;
     flex: wrap;
     align-items: center;
@@ -102,6 +102,7 @@
 }
 .tableHeader{
     padding: 5px;
+    margin-top: 10px;
     background: #fff;
     margin-bottom: 6px;
 }
