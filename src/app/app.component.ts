@@ -66,8 +66,7 @@ export class AppComponent {
   getNumberForCopy(count, obj, inputNumber) {
 
     let pushToArray = [];
-
-
+   
     if (count === 'copylegs') {
 
      var marginObject= this.calculaterFInalPriceUsingMargin(inputNumber,obj);
@@ -83,6 +82,7 @@ export class AppComponent {
       this.rhsResObject = clickedObject;
       this.getTotal(this.rhsResObject);
     }
+  
 
 
     // this.getRHSTotal(this.rhsResObject);
@@ -140,9 +140,9 @@ export class AppComponent {
       'display': 'none'
     };
   }
-  addLEGS(event, update) {
+  addLEGS(event, text) {
 
-    if (update === 'update') {
+    if (text === 'update') {
 
 
     } else {

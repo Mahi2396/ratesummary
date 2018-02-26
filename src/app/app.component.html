@@ -157,7 +157,7 @@
       <p>{{popUptitil}} Legs Data</p>
     </div>
     <div class="modal-body" id="bind-selected-data">
-      <form [formGroup]="loginForm" (ngSubmit)="addLEGS($event,'update')">
+      <form [formGroup]="loginForm" (ngSubmit)="addLEGS('Add')">
         <div class="col-md-6 col-sm-6 col-xs-6 from-control-wrapper">
           <input formControlName="charge_name" type="text" placeholder="Enter Charge">
         </div>
