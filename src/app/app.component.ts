@@ -51,8 +51,7 @@ export class AppComponent {
       this.responseObject = _.cloneDeep(data);
       this.loadingStyle={
         'display': 'none'
-    }
-    }
+    } }
   );
   }
 
