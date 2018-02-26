@@ -1,0 +1,228 @@
+.fa{
+    font-size: 16px;
+    cursor: pointer;
+}
+.app-header{
+    font-size: 14px;
+    font-weight: 600;
+}
+.bold-class{
+    font-weight: bold;
+}
+.inner-header-wrapper{
+    padding: 10px;
+    height: 40px;
+    color: #fff;
+    background: #374aaf;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    letter-spacing: 0.6px;
+    font-weight: 600;
+}
+.main-rate-body-container{
+    padding: 0;
+    height: 80%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.left-side-conatiner{
+    padding: 24px;
+    background:#eff1f0;
+    height: 100%;
+    overflow: scroll;
+}
+.lhs-title-wrapper{
+    padding: 6px 0
+}
+.right-side-container{
+    background: #f3f4f6;
+    padding: 24px;;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.copy-button{
+    padding: 8px;
+    border:1px solid #fcab33;
+    color: #fcab33;
+    cursor: pointer;
+}
+.rate-lhs-header{
+    display: flex;
+    flex: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.rateHeader{
+    display: flex;
+    flex: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.rate-detail{
+    height: 250px;
+    overflow-y: auto;
+    background: #fff;
+}
+.rate-section{
+    
+    padding:6px;
+    border-bottom: 1px solid #c7c7ca;
+}
+.rate-type-wrapper
+{
+    margin-bottom: 20px;
+}
+.small-font{
+    font-size: 13px !important;
+}
+
+.check-detail-copy{
+    padding: 4px;
+    background: #fcab33;
+    color: #fff;
+    cursor: pointer;
+}
+.input-text-control{
+    width: 60px;
+}
+.copy-wrapper{
+    padding: 10px;
+}
+.copy-wrapper:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.tableHeader{
+    padding: 5px;
+    background: #fff;
+    margin-bottom: 6px;
+}
+.footer-container{
+    height: 10%;
+    padding: 20px;
+}
+.rhsTable{
+    width: 100%;
+    height: 250px;
+
+}
+.rhsTable thead tr th{
+    margin: 6px;
+    background: #fff;
+}
+.rhsTable tbody tr td{
+    background: #fff;
+}
+.rhsTable thead tr th, .rhsTable tbody tr td{
+    padding: 6px;
+}
+.rhs-copr-detail
+{
+    height: 250px;
+    overflow-y: auto;
+}
+.add-remove-legs-button
+{
+    padding: 24px;
+}
+.add-remove-legs-button:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.add-button{
+    padding: 5px;
+    display: inline-block;
+    color: #374aaf;
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.from-control-wrapper{
+    padding: 0;
+    margin-bottom: 10px;
+}
+.from-control-wrapper input{
+    width: 80%;
+    padding: 10px;
+}
+.footer-container::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.footer-label{
+    text-transform: uppercase;
+}
+.section-one{
+    display: inline-block;
+    margin: 0 20px;
+}
+.generate-quote{
+    text-transform: uppercase;
+    background: #fcab33;
+    color: #eff1f0;
+    width: 300px;
+    display: inline-block;
+    padding: 8px;
+    cursor: pointer
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-header{
+    background:#337ab7;
+    color: #fff;
+}
+.modal-body {
+    position: relative;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.submit-button{
+    background: #374aaf;
+    color: #eff1f0;
+    width: 100px;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(177, 177, 177);
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-right-width: 2px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-track {
+    border-left: 1px solid hsla(0,0%,78%,.35);
+}

@@ -1,20 +1,180 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="header-container">
+  <div class="nav-container"></div>
+  <div class="inner-header-wrapper">
+    RateSummary
+  </div>
 
+
+</div>
+
+<section class="col-md-12 col-sm-12 main-rate-body-container">
+  <div class="col-md-5 col-sm-5 left-side-conatiner">
+    <div class="rate-lhs-header">
+      <span class="app-header">BUYING RATES</span>
+      <span class="copy-button" (click)="getNumberForCopy('copyall')">COPY ALL LEGS</span>
+    </div>
+    <div class="rate-type-wrapper" *ngFor="let object of totalcharge ;let i = index">
+      <div class="rateHeader lhs-title-wrapper">
+        <span class="app-header bold-class">{{object.rate_card_meta.leg_name}}</span>
+        <span class="total-price">{{object.rate_card_meta.charge_currency}}{{object.rate_card_meta.totalRate}}</span>
+
+      </div>
+      <div class="charger-ammount-wrapper">
+        <div class="rateHeader tableHeader">
+          <span class="small-font app-header">Charges Header</span>
+          <span class="small-font total-price">Final Amount</span>
+
+        </div>
+        <div class="rate-detail">
+          <div class="rateHeader rate-section" *ngFor="let newObject of object.rate_card_obj.card_charges">
+            <span class="small-font">{{newObject.charge_name}}</span>
+            <span class="small-font total-price">{{newObject.charge_currency}}{{newObject.total}}</span>
+
+          </div>
+        </div>
+
+        <div class="copy-wrapper">
+          <div class="pull-right">
+            <form #heroForm="ngForm">
+              <span class="copy-part">Copy</span>
+              or
+              <input type="text" pattern="^[0-9]+" maxlength="2" class="input-text-control" [(ngModel)]="ngModelCount[i]" name="ngModelCount[i]"
+              />
+
+
+              <span class="check-detail-copy" (click)="getNumberForCopy('copylegs',object,ngModelCount[i])">Ok</span>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7 col-sm-7 right-side-container">
+    <div class="rhs-inner-wrapper" *ngFor="let rhssObjectvalue of rhsResObject['leg_data'];let loopIndex = index">
+
+      <div class="rateHeader tableHeader">
+        <span class="small-font app-header">{{rhssObjectvalue.rate_card_meta.leg_name}}</span>
+        <span class="small-font total-price">{{rhssObjectvalue.rate_card_meta.charge_currency}}{{rhssObjectvalue.rate_card_meta.totalRate}}</span>
+
+      </div>
+      <div class="rhs-copr-detail">
+        <table class="rhsTable">
+          <thead>
+            <tr>
+              <th>
+                <span class="small-font total-price">Charges</span>
+              </th>
+
+              <th>
+                <span class="small-font total-price">Basic</span>
+              </th>
+              <th>
+                <span class="small-font total-price">Ammount</span>
+              </th>
+              <th>
+                <span class="small-font total-price">Final Ammount</span>
+              </th>
+              <th>
+                <span class="small-font total-price">Update</span>
+              </th>
+              <th>
+                <span class="small-font total-price">Delete</span>
+              </th>
+
+            </tr>
+
+          </thead>
+          <tbody>
+            <tr *ngFor="let newObject of rhssObjectvalue.rate_card_obj.card_charges;let deleteIndex = index">
+              <td>
+                <span class="small-font">{{newObject.charge_name}}</span>
+              </td>
+              <td>
+                <span class="small-font total-price">{{newObject.basis}}</span>
+              </td>
+              <td>
+                <span class="small-font total-price">{{newObject.charge_currency}} {{newObject.amount}}</span>
+              </td>
+              <td>
+                <span class="small-font total-price">{{newObject.charge_currency}} {{newObject.marginPrice}}</span>
+              </td>
+              <td>
+                <span class="small-font total-price" (click)="getDataForAdd('Update',newObject)">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                </span>
+              </td>
+              <td>
+                <span class="small-font total-price" (click)="deleteSelected(newObject,deleteIndex,loopIndex)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+      <div class="add-remove-legs-button">
+
+        <span class="add-button pull-right" (click)="getDataForAdd('Add',loopIndex)">Add Another Charges</span>
+        <span class="add-button pull-right">Remove Legs</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="col-md-12 col-sm12 col-xs-12 footer-container">
+  <div class="pull-left">
+    <div class="footer-label">Total buy rate</div>
+    <span class="app-content">GHS 12.00</span>
+
+  </div>
+  <div class="pull-right">
+    <div class="section-one">
+        <div class="footer-label">Total break up rate</div>
+        <span class="app-content">GHS 12.00</span>
+    </div>
+    <div class="section-one">
+        <div class="footer-label">Profit percentage</div>
+        <span class="app-content">12%</span>
+    </div>
+    <div class="section-one">
+       <span class="generate-quote">Generate Quote</span>
+    </div>
+    
+  </div>
+</section>
+
+<div id="myModal" class="modal" [ngStyle]="alertStyles">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close closeDialog" (click)="closePopUp()">&times;</span>
+      <p>{{popUptitil}} Legs Data</p>
+    </div>
+    <div class="modal-body" id="bind-selected-data">
+      <form [formGroup]="loginForm" (ngSubmit)="addLEGS($event,'update')">
+        <div class="col-md-6 col-sm-6 col-xs-6 from-control-wrapper">
+          <input formControlName="charge_name" type="text" placeholder="Enter Charge">
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 from-control-wrapper">
+          <input formControlName="amount" type="number" placeholder="Enter Amount">
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 from-control-wrapper">
+          <input formControlName="basis" type="text" placeholder="Enter Basic Discription">
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 from-control-wrapper">
+          <input formControlName="Final_Amount" type="number" placeholder="Enter Final Amount">
+        </div>
+
+        <button type="submit" class="submit-button">{{popUptitil}}</button>
+      </form>
+    </div>
+  </div>
+  <img class="loading-icon-container" [ngStyle]="loadingStyle" src="../assets/loading-icon.gif" alt="" />
+</div>
+<!-- end repo commit detail container -->
